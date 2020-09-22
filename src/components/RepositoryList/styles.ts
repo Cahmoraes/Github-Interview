@@ -4,7 +4,7 @@ export const Repositories = styled.div`
   margin: 3rem auto 0;
   max-width: 700px;
 
-  > div {
+  > article {
     background: #FFF;
     border-radius:5px;
     width: 100%;
@@ -14,7 +14,7 @@ export const Repositories = styled.div`
     display: flex;
     align-items: center;
 
-    & + div {
+    & + article {
       margin-top: 1.6rem; 
     }
 
