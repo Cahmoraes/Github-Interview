@@ -15,4 +15,10 @@ const animaLeft = keyframes`
 export const Container = styled.main`
   margin: 5rem 0;
   animation: ${animaLeft} .5s forwards;
+
+  @media only screen and (max-width: 480px) {
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
 `
