@@ -29,7 +29,7 @@ const Search: React.FC = () => {
       <Form isError={!!isError} onSubmit={searchUser}>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search by user..."
           ref={inputSearchUser}
         />
         <button>Search</button>

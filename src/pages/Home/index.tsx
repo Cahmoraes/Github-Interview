@@ -1,17 +1,21 @@
 import React from 'react'
 
 import Search from '../../components/Search'
+import Footer from '../../Footer'
 
-
-import { Header, Container } from './styles'
+import { Main, Container, Title } from './styles'
 
 const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Header>
+      <Title>
+        Please, search by user from Github
+      </Title>
+      <Main>
         <Search />
-      </Header>
+      </Main>
+      <Footer />
     </Container>
   )
 }

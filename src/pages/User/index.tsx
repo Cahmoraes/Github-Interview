@@ -77,15 +77,13 @@ const User: React.FC = () => {
 
         <Navigation>
           <NavigationButton styleButton="primary" path={`${url}/repos`}>Repos</NavigationButton>
-          <NavigationButton path={`${url}/starred/${userInfo.login}/repo`}>Stars</NavigationButton>
+          <NavigationButton path={`${url}/starred/${userInfo.login}/repo`}>Starred</NavigationButton>
         </Navigation>
-
 
         <Switch>
           <Route path="/users/:user_github/repos" component={Repository} />
           <Route path="/users/:user_github/starred/:owner/repo" component={Starred} />
         </Switch>
-
 
       </Container>
     )

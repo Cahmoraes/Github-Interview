@@ -76,7 +76,7 @@ export const Loading = styled.h3`
   margin: 2rem 0;
 `
 
-export const UserInfo = styled.div`
+export const UserInfo = styled.main`
   display: flex;
   flex-wrap: wrap;
   align-items: center;

@@ -31,16 +31,22 @@ export const Repositories = styled.div`
       strong {
         font-size: 20px;
         color: #3D3D4D;
+        word-break: break-word;
       }
 
       p {
         font-size: 1.8rem;
         color: #a8a8b3;
         margin-top: 4px;
-        
-        @media only screen and(max-width: 410px) {
-          font-size: 1.2rem;
-        }
+      }
+    }
+
+    @media only screen and (max-width: 460px) {
+      strong {
+        font-size: 1.8rem;
+      }
+      div > p {
+        font-size: 1.6rem;
       }
     }
   }

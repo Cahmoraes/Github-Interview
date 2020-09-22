@@ -13,13 +13,13 @@ const RepositoryList: React.FC<RepositoryListProps> = ({ repositories }) => {
     <Repositories>
       {
         repositories.map(repository => (
-          <div key={repository.id}>
+          <article key={repository.id}>
             <img src={repository.owner.avatar_url} alt={repository.owner.login} />
             <div>
               <strong>{repository.full_name}</strong>
               <p>{repository.description}</p>
             </div>
-          </div>
+          </article>
         ))
       }
     </Repositories>

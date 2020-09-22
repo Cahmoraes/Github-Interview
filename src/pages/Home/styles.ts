@@ -18,26 +18,22 @@ const animaLeft = keyframes`
 
 export const Container = styled.section`
   animation: ${animaLeft} .5s forwards;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  flex-direction: column;
 `
 
 export const Title = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-`
-
-export const Subtitle = styled.h2`
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
 `
 
-export const Header = styled.header`
+export const Main = styled.main`
   margin-bottom: 3rem;
-  max-width: 100%;
-  flex: 1;
+  width: 100%;
 `
 
 export const Form = styled.form<FormProps>`
@@ -95,36 +91,6 @@ export const Form = styled.form<FormProps>`
       }
     }
   }
-`
-
-export const Movies = styled.div`
-  margin-top: 4rem;
-`
-
-export const Movie = styled.div`
-  background: #EFEFEF;
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.6rem;
-
-  & + div {
-    margin-top: 10px;
-  }
-
-  img {
-    width: 125px;
-  }
-
-  > div {
-    margin-left: 15px;
-    padding: 10px;
-    
-    p {
-      margin-top: 10px;
-      line-height: 2.3rem;
-    }
-  }
-
 `
 
 export const ErrorMessage = styled.span`
