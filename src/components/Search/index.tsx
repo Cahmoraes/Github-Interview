@@ -1,7 +1,8 @@
 import React, { FormEvent, useCallback, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { FaSearch } from 'react-icons/fa'
 
-import { Form, Container, ErrorMessage } from './styles'
+import { Form, ErrorMessage } from './styles'
 
 const Search: React.FC = () => {
   const history = useHistory()
@@ -25,17 +26,17 @@ const Search: React.FC = () => {
 
 
   return (
-    <Container>
+    <>
       <Form isError={!!isError} onSubmit={searchUser}>
         <input
           type="text"
-          placeholder="Search by user..."
+          placeholder="Search by user: cahmoraes"
           ref={inputSearchUser}
         />
-        <button>Search</button>
+        <button type="submit"><FaSearch size={26} color="#FFF" /></button>
       </Form>
       {isError && <ErrorMessage>{isError}</ErrorMessage>}
-    </Container>
+    </>
   )
 }
 

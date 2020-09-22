@@ -10,17 +10,21 @@ export const Button = styled(Link) <ButtonProps>`
   width: 80px;
   border-radius: 5px;
   padding: 0.7rem;
-  display: block;
+  display: flex;
+  align-items: flex-start;
   margin: 1rem;
   color: #FFF;
-  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
+  width: 150px;
+
+  svg {
+    margin-right: 1.5rem;
+  }
 
   ${(props) => props.className === 'primary' ? (
     css`
       background-color: #007bff
-      
     `
   ) : (
       css`background-color: #04D361`

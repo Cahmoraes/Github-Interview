@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
+import { FaStar, FaDatabase } from 'react-icons/fa'
 
 import Search from '../../components/Search';
 import api from '../../services/api';
 import NavigationButton from '../../components/Button'
-import Repository from '../Repositories';
-import Starred from '../Starred';
-import IUsernameParam from '../../utils/interfaces/UsernameParam';
+import Repository from './Repositories';
+import Starred from './Starred';
+import IUsernameParam from '../../interfaces/UsernameParam';
 
-import { Container, Header, Loading, UserInfo, Navigation } from './styles'
+import { Container, Loading, UserInfo, Navigation, ErrorMessage } from './styles'
 
 interface User {
   login: string
@@ -35,7 +36,6 @@ const User: React.FC = () => {
           const { data } = await api.get<User>(`users/${user_github}`)
           const user = data
           setUserInfo(user)
-          console.log(data)
         } else {
           throw new Error('Por favor, preencher com um título')
         }
@@ -49,15 +49,17 @@ const User: React.FC = () => {
   }, [user_github])
 
   if (loading) return <Loading>Loading...</Loading>
-  else if (error) return <p>{error}</p>
+  else if (error) return (
+    <>
+      <Search />
+      <ErrorMessage>User not found</ErrorMessage>
+    </>
+  )
   else if (userInfo.id === undefined) return null
   else
     return (
       <Container>
-        <Header>
-          <Search />
-        </Header>
-
+        <Search />
         <UserInfo>
           <img src={userInfo.avatar_url} alt={userInfo.login} />
           <div>
@@ -76,14 +78,22 @@ const User: React.FC = () => {
         </UserInfo>
 
         <Navigation>
-          <NavigationButton styleButton="primary" path={`${url}/repos`}>Repos</NavigationButton>
-          <NavigationButton path={`${url}/starred/${userInfo.login}/repo`}>Starred</NavigationButton>
+          <NavigationButton styleButton="primary" path={`${url}/repos`}>
+            <FaDatabase size={16} color="#FFF" />
+            Repos
+          </NavigationButton>
+          <NavigationButton path={`${url}/starred/${userInfo.login}/repo`}>
+            <FaStar size={16} color="#FFF" />
+            Starred
+          </NavigationButton>
         </Navigation>
 
-        <Switch>
-          <Route path="/users/:user_github/repos" component={Repository} />
-          <Route path="/users/:user_github/starred/:owner/repo" component={Starred} />
-        </Switch>
+        <section>
+          <Switch>
+            <Route path="/users/:user_github/repos" component={Repository} />
+            <Route path="/users/:user_github/starred/:owner/repo" component={Starred} />
+          </Switch>
+        </section>
 
       </Container>
     )

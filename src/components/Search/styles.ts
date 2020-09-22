@@ -15,17 +15,17 @@ const animaLeft = keyframes`
   }
 `
 
-export const Container = styled.section`
+export const Form = styled.form<FormProps>`
   margin-bottom: 4rem;
   animation: ${animaLeft} .5s forwards;
-`
-
-export const Form = styled.form<FormProps>`
   display: flex;
   flex-wrap: wrap;
 
   @media only screen and (max-width: 480px) {
     flex-direction: column;
+    svg {
+      height: 20px;
+    }
   }
 
   input {
@@ -94,5 +94,6 @@ export const ErrorMessage = styled.span`
   display: block;
   color: #cc3838;
   font-size: 1.8rem;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
+  animation: ${animaLeft} .5s forwards;
 `
